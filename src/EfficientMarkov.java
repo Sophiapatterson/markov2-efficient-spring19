@@ -17,10 +17,10 @@ public class EfficientMarkov extends BaseMarkov {
 		for (int i=0; i<=myText.length() - myOrder; i++) {
 			myMap.putIfAbsent(myText.substring(i,i+myOrder), new ArrayList<String>());
 			if(i==myText.length() - myOrder) {
-				myMap.get(myText.substring(i+myOrder)).add(PSEUDO_EOS);
+				myMap.get(myText.substring(i,i+myOrder)).add(PSEUDO_EOS);
 			}
 			else {
-				myMap.get(myText.substring(i+myOrder)).add(myText.substring(i+myOrder, i+myOrder+1));
+				myMap.get(myText.substring(i,i+myOrder)).add(myText.substring(i+myOrder, i+myOrder+1));
 			}		
 		}
 	}
